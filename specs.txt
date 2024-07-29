@@ -1,0 +1,80 @@
+User Authentication and Registration:
+
+Users should be able to register with a unique name.
+
+Registration should be validated to ensure uniqueness.
+
+Users should be able to log in using their unique name.
+
+
+
+Chat Interface:
+
+Upon successful login, users should be directed to a clean and intuitive chat interface.
+
+The interface should display the user's chat history.
+
+Messages should be displayed in a conversational format, with timestamps.
+
+
+
+Real-Time Communication:
+
+Messages should be delivered in real-time between users. 
+
+New messages should automatically appear in the chat interface without requiring a page refresh.
+
+
+
+Documentation:
+
+Comprehensive documentation should be provided for installation, configuration, and usage of the application for developers and administrators 
+
+
+
+User Search and Conversation Creation:
+
+Users should be able to search for other users by their unique name.
+
+Upon finding the desired user, the current user should be able to initiate a conversation with them.
+
+The application should support the creation of new conversations between users based on the search results.
+
+Once a conversation is initiated, the chat interface should seamlessly transition to the newly created conversation, allowing users to start exchanging messages immediately.
+
+
+
+Chat History Storage:
+
+Chat history between users should be stored in MongoDB.
+
+Users should be able to retrieve previous chat conversations.
+
+
+
+Logging and Analytics:
+
+The application should log events such as user logins, message sending/receiving, and errors for analysis and troubleshooting purposes.
+
+
+Main Points
+
+store the sockets data somewhere else to make sure if the server restarts, the data doesn't get lost. But still the app should be efficient enough. 
+
+dockerize the app, create a container for the database as well and store its data in a volume. make sure to write instructions to backup the data.
+
+
+Technologies to be used:
+
+
+
+Frontend: NextJS with TypeScript
+
+Chose right stack for this sort of Application for backend and database
+
+
+
+Make sure your code is clean and record a video of the loom.
+
+Looking forward to your prompt response and the timely submission of the task. Thank you.
+

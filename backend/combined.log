@@ -1,0 +1,24 @@
+{"level":"info","message":"Logged in user newuser logged in","service":"user-service"}
+{"level":"info","message":"Message user 66a51b7426d1736a5f1f3936 sending mesasge sending message, peers: 66a51ff064f4bac2ac7baa5b,66a51b7426d1736a5f1f3936 ","service":"user-service"}
+{"level":"info","message":"Registered user ANOTHER_USER registered ","service":"user-service"}
+{"level":"info","message":"Logged in user ANOTHER_USER logged in","service":"user-service"}
+{"level":"info","message":"Message user 66a56d79b811183e1ee17c17 sending mesasge hello, peers: 66a56d79b811183e1ee17c17,66a51b7426d1736a5f1f3936 ","service":"user-service"}
+{"level":"info","message":"Message user 66a51b7426d1736a5f1f3936 sending mesasge some message, peers: 66a56d79b811183e1ee17c17,66a51b7426d1736a5f1f3936 ","service":"user-service"}
+{"level":"info","message":"Message user 66a51b7426d1736a5f1f3936 sending mesasge hey, peers: 66a56d79b811183e1ee17c17,66a51b7426d1736a5f1f3936 ","service":"user-service"}
+{"level":"info","message":"Message user 66a56d79b811183e1ee17c17 sending mesasge hi, peers: 66a56d79b811183e1ee17c17,66a51b7426d1736a5f1f3936 ","service":"user-service"}
+{"level":"info","message":"Message user 66a56d79b811183e1ee17c17 sending mesasge hey, peers: 66a56d79b811183e1ee17c17,66a51ff064f4bac2ac7baa5b ","service":"user-service"}
+{"level":"info","message":"Message user 66a51b7426d1736a5f1f3936 sending mesasge hey, peers: 66a51ff064f4bac2ac7baa5b,66a51b7426d1736a5f1f3936 ","service":"user-service"}
+{"level":"info","message":"Message user 66a56d79b811183e1ee17c17 sending mesasge hello, peers: 66a56d79b811183e1ee17c17,66a51ff064f4bac2ac7baa5b ","service":"user-service"}
+{"level":"info","message":"Message user 66a51b7426d1736a5f1f3936 sending mesasge whaattt, peers: 66a51ff064f4bac2ac7baa5b,66a51b7426d1736a5f1f3936 ","service":"user-service"}
+{"level":"info","message":"Registered user new_account registered ","service":"user-service"}
+{"level":"info","message":"Registered user new_account_username registered ","service":"user-service"}
+{"level":"info","message":"Registered user some_user registered ","service":"user-service"}
+{"level":"info","message":"Registered user user123 registered ","service":"user-service"}
+{"level":"info","message":"Registered user john_test1 registered ","service":"user-service"}
+{"level":"info","message":"Logged in user john_test1 logged in","service":"user-service"}
+{"level":"info","message":"Logged in user john_test1 logged in","service":"user-service"}
+{"level":"info","message":"Registered user john_test2 registered ","service":"user-service"}
+{"level":"info","message":"Logged in user john_test2 logged in","service":"user-service"}
+{"level":"info","message":"Message user 66a5785bdc159731db65b3fb sending mesasge hello, peers: 66a5785bdc159731db65b3fb,66a5781edc159731db65b3f3 ","service":"user-service"}
+{"level":"info","message":"Message user 66a5781edc159731db65b3f3 sending mesasge hey waazp, peers: 66a5785bdc159731db65b3fb,66a5781edc159731db65b3f3 ","service":"user-service"}
+{"level":"info","message":"Message user 66a5785bdc159731db65b3fb sending mesasge hello, peers: 66a5785bdc159731db65b3fb,66a5781edc159731db65b3f3 ","service":"user-service"}
