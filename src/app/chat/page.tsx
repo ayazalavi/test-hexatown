@@ -18,15 +18,36 @@ import { socket as socketMethod } from "@/socket";
 import { Socket } from "socket.io-client";
 import ChatInterface from "@/components/chatinterface";
 import { useRouter } from "next/navigation";
+import SearchField from "@/components/searchfield";
+import LeftMenuMessage from "@/components/leftlist/nochatsmessage";
+import Users from "@/components/leftlist/users";
+import Chats from "@/components/leftlist/chats";
+import { ObjectId } from "mongoose";
+
+export interface IChat {
+  peers: IUser[];
+  messages: {
+    message: string;
+    sender: IUser;
+    dateSent: Date;
+  }[];
+  _id: string;
+}
+export interface IUser {
+  username: String; // String is shorthand for {type: String}
+  dateSignedUp: Date;
+  dateLastSigned: Date;
+  _id: string;
+}
 
 const ChatPage = () => {
   const socket = useRef<Socket | null>(null);
   const myid = useRef<string>("");
-  const [chats, setChats] = useState([]);
+  const [chats, setChats] = useState<IChat[]>([]);
   const [users, setUsers] = useState([]);
   const [search, setSearch] = useState("");
   const [searching, setSearching] = useState(false);
-  const [peer, setPeer] = useState(null);
+  const [peer, setPeer] = useState<IUser | null>(null);
   const searchText = useDeferredValue(search);
   const router = useRouter();
   useEffect(() => {
@@ -45,14 +66,11 @@ const ChatPage = () => {
     });
 
     socket.current.on("chathistory", (data) => {
-      console.log("history:", data.data);
       setChats(data.data);
       myid.current = data.myuserid;
     });
 
     socket.current.on("usersearch", (data) => {
-      console.log("users:", data.data);
-
       setUsers(data.data);
       setSearching(false);
     });
@@ -72,25 +90,6 @@ const ChatPage = () => {
       socket.current.emit("search", { data: searchText });
     }
   };
-
-  console.log(chats);
-  const [selectedChat, setSelectedChat] = useState({
-    name: "user1",
-    lastSignin: new Date().toISOString(),
-    messages: [
-      {
-        text: "some message",
-        timestamp: new Date().toISOString(),
-      },
-      {
-        text: "some message",
-        mine: true,
-        timestamp: new Date().toISOString(),
-      },
-    ],
-  });
-  const [newChat, setNewChat] = useState(false);
-  const [searchUser, setSearchUser] = useState("");
 
   const handleNewChat = (user: any) => {
     console.log("user", user);
@@ -115,122 +114,18 @@ const ChatPage = () => {
           sx={{ borderRight: 1, borderRightColor: "white", height: "100vh" }}
         >
           <Box flexDirection={"column"} display={"flex"}>
-            <TextField
-              id="standard-basic"
-              label="Search User"
-              variant="standard"
-              value={search}
-              onKeyDown={({ nativeEvent: { key } }) => {
-                if (key === "Enter") {
-                  searchUsers();
-                }
-              }}
-              onChange={(e) => setSearch(e.target.value)}
-              inputProps={{ className: "text-white" }}
-              sx={{
-                width: "95%",
-                marginLeft: "6px",
-                input: {
-                  color: "white",
-                  paddingLeft: "5px",
-                  paddingRight: "5px",
-                },
-                label: { color: "white" },
-                "& .MuiInput-underline:before": { borderBottomColor: "white" },
-                "& .MuiInput-underline:hover:not(.Mui-disabled):before": {
-                  borderBottomColor: "white",
-                },
-                "& .MuiInput-underline:after": { borderBottomColor: "white" },
-              }}
+            <SearchField
+              search={search}
+              searchUsers={searchUsers}
+              setSearch={setSearch}
             />
-
-            {(users.length === 0 && chats.length === 0) || searching ? (
-              <Box
-                sx={{
-                  flex: 1,
-                  textAlign: "center",
-                  marginTop: "50px",
-                  fontSize: "14px",
-                }}
-              >
-                {searching ? (
-                  <CircularProgress size={20} color="primary" />
-                ) : (
-                  "No chat found"
-                )}
-              </Box>
-            ) : (
-              <></>
-            )}
-            {users.length ? (
-              <List
-                component={Paper}
-                sx={{
-                  backgroundColor: "transparent",
-                  color: "white", // This will set the text color for ListItemText
-                }}
-              >
-                {users.map((user) => (
-                  <ListItem
-                    button
-                    key={user._id}
-                    sx={{
-                      backgroundColor: "transparent",
-                      "&:hover": { backgroundColor: "#FFA500" },
-                    }}
-                    onClick={() => handleNewChat(user)}
-                  >
-                    <ListItemText
-                      primary={user.username}
-                      sx={{
-                        color: "white",
-                        fontSize: "14px",
-                      }}
-                    />
-                  </ListItem>
-                ))}
-              </List>
-            ) : (
-              <></>
-            )}
-            {chats.length ? (
-              <List
-                component={Paper}
-                sx={{
-                  backgroundColor: "transparent",
-                  color: "white", // This will set the text color for ListItemText
-                }}
-              >
-                {chats.map((chat) => (
-                  <ListItem
-                    button
-                    key={chat._id}
-                    sx={{
-                      backgroundColor: "transparent",
-                      "&:hover": { backgroundColor: "#FFA500" },
-                    }}
-                    onClick={() =>
-                      handleNewChat(
-                        chat.peers.find((peer) => peer._id !== myid.current)
-                      )
-                    }
-                  >
-                    <ListItemText
-                      primary={
-                        chat.peers.find((peer) => peer._id !== myid.current)
-                          .username
-                      }
-                      sx={{
-                        color: "white",
-                        fontSize: "14px",
-                      }}
-                    />
-                  </ListItem>
-                ))}
-              </List>
-            ) : (
-              <></>
-            )}
+            <LeftMenuMessage
+              users={users}
+              chats={chats}
+              searching={searching}
+            />
+            <Users users={users} handleNewChat={handleNewChat} />
+            <Chats chats={chats} handleNewChat={handleNewChat} myid={myid} />
           </Box>
           {/* <List component={Paper}>
             {chats.map((chat) => (

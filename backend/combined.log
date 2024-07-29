@@ -22,3 +22,17 @@
 {"level":"info","message":"Message user 66a5785bdc159731db65b3fb sending mesasge hello, peers: 66a5785bdc159731db65b3fb,66a5781edc159731db65b3f3 ","service":"user-service"}
 {"level":"info","message":"Message user 66a5781edc159731db65b3f3 sending mesasge hey waazp, peers: 66a5785bdc159731db65b3fb,66a5781edc159731db65b3f3 ","service":"user-service"}
 {"level":"info","message":"Message user 66a5785bdc159731db65b3fb sending mesasge hello, peers: 66a5785bdc159731db65b3fb,66a5781edc159731db65b3f3 ","service":"user-service"}
+{"level":"info","message":"Registered user some_user_1 registered ","service":"user-service"}
+{"level":"info","message":"Logged in user some_user_1 logged in","service":"user-service"}
+{"level":"info","message":"Message user 66a754c9c91dad33172898b3 sending mesasge hello, peers: 66a754c9c91dad33172898b3,66a57314da6d506aa4513730 ","service":"user-service"}
+{"level":"info","message":"Registered user some_user_2 registered ","service":"user-service"}
+{"level":"info","message":"Logged in user some_user_2 logged in","service":"user-service"}
+{"level":"info","message":"Registered user some_user_3 registered ","service":"user-service"}
+{"level":"info","message":"Registered user some_user_4 registered ","service":"user-service"}
+{"level":"info","message":"Registered user some_user_5 registered ","service":"user-service"}
+{"level":"info","message":"Registered user some_user_6 registered ","service":"user-service"}
+{"level":"info","message":"Registered user some_user_7 registered ","service":"user-service"}
+{"level":"info","message":"Registered user new_acc_1 registered ","service":"user-service"}
+{"level":"info","message":"Registered user some_user_8 registered ","service":"user-service"}
+{"level":"info","message":"Logged in user some_user_8 logged in","service":"user-service"}
+{"level":"info","message":"Message user 66a757aec91dad33172898e3 sending mesasge hey, peers: 66a757aec91dad33172898e3,66a57314da6d506aa4513730 ","service":"user-service"}
