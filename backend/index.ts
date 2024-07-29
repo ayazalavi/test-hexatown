@@ -36,7 +36,7 @@ const corsOptions = {
 };
 
 mongoose
-  .connect("mongodb://localhost:27017/test-hexatown", {
+  .connect(process.env.MONGO_URI || "mongodb://localhost:27017/test-hexatown", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
@@ -160,7 +160,6 @@ io.on("connection", (socket: SocketC) => {
     });
     users = users.filter((user) => user.id !== userid);
     socket.emit("usersearch", { data: users });
-    
   });
 });
 
